@@ -78,15 +78,15 @@ type
 
 var
   Frm_Inicial: TFrm_Inicial;
-   originalObject: TJSONObject;
-  jsArr: TJSONArray;
-  jsPair : TJSONPair;
-   jso : TJSONObject;
-   i : Integer;
-   pesquisaJson: TJSONValue;
-   litem  : TListViewItem;
-   txt : tlistitemtext;
-   img : tlistitemimage;
+       originalObject: TJSONObject;
+       jsArr: TJSONArray;
+       jsPair : TJSONPair;
+       jso : TJSONObject;
+       i : Integer;
+       pesquisaJson: TJSONValue;
+       litem  : TListViewItem;
+       txt : tlistitemtext;
+       img : tlistitemimage;
 
 
 implementation
@@ -100,7 +100,6 @@ procedure tfrm_Inicial.sb_pesquisaClick(Sender: TObject);
 function aspas(s : string) : string;
 begin
   Result := StringReplace(s,'"','',[rfReplaceAll]);
-
 end;
 function formatardata(s: string) : string;
 var a,d,m : string;
@@ -110,9 +109,9 @@ begin
     m:='';
     d:='';
 
-    a := StringReplace(copy(s,1,4),'-','',[rfReplaceAll]);
-    m := StringReplace(copy(s,5,6),'-','',[rfReplaceAll]);
-    d := StringReplace(copy(s,8,9),'-','',[rfReplaceAll]);
+      a := StringReplace(copy(s,1,4),'-','',[rfReplaceAll]);
+      m := StringReplace(copy(s,5,6),'-','',[rfReplaceAll]);
+      d := StringReplace(copy(s,8,9),'-','',[rfReplaceAll]);
 
     SHOWMESSAGE(a);
     SHOWMESSAGE(m);
@@ -164,18 +163,18 @@ begin
 
       originalObject.Parse(
 
-//      TEncoding.ASCII.GetBytes(
-//      '{"result":[{"Nome":"DELMAR","Cidade":"AJURICABA","Bairro":"CENTRO"},'+
-//      '{"Nome":"DALVAN","Cidade":"IJUÍ","Bairro":"JARDIM"}]}'),0);
+  //      TEncoding.ASCII.GetBytes(
+  //      '{"result":[{"Nome":"DELMAR","Cidade":"AJURICABA","Bairro":"CENTRO"},'+
+  //      '{"Nome":"DALVAN","Cidade":"IJUÍ","Bairro":"JARDIM"}]}'),0);
 
-//      TEncoding.ASCII.GetBytes(
-//'{"licenca":[{"rsocial" : "JAMES DIAS LOPES", "CNPJ_CPF" : "05487459355", "fantasia" : "JAMES", "id" : "8E0AB5BD",'+
-//' "descricao" : "NOVO NOTEBOOK", "validade" : "2020-10-31", "serial1" : "4990202004100607031089317085107X4X6911210209349" }, '+
-//'{ "rsocial" : "JAMES DIAS LOPES", "CNPJ_CPF" : "05487459355", "fantasia" : "JAMES", "id" : "EA6F2F8F", '+
-//'"descricao" : "SAMSUNG GAMER", "validade" : "2020-12-31", "serial1" : "906020204123795123199295499512046X69102273006X3" }, '+
-//'{ "rsocial" : "JAMES DIAS LOPES", "CNPJ_CPF" : "05487459355", "fantasia" : "JAMES", "id" : "2255B6B4", '+
-//'"descricao" : "NOTEBOOK SERVICO", "validade" : "2020-04-24", "serial1" : "1212202065831317024X6937702504694X6920224300135" }]}'),
-//0);
+  //      TEncoding.ASCII.GetBytes(
+  //'{"licenca":[{"rsocial" : "JAMES DIAS LOPES", "CNPJ_CPF" : "05487459355", "fantasia" : "JAMES", "id" : "8E0AB5BD",'+
+  //' "descricao" : "NOVO NOTEBOOK", "validade" : "2020-10-31", "serial1" : "4990202004100607031089317085107X4X6911210209349" }, '+
+  //'{ "rsocial" : "JAMES DIAS LOPES", "CNPJ_CPF" : "05487459355", "fantasia" : "JAMES", "id" : "EA6F2F8F", '+
+  //'"descricao" : "SAMSUNG GAMER", "validade" : "2020-12-31", "serial1" : "906020204123795123199295499512046X69102273006X3" }, '+
+  //'{ "rsocial" : "JAMES DIAS LOPES", "CNPJ_CPF" : "05487459355", "fantasia" : "JAMES", "id" : "2255B6B4", '+
+  //'"descricao" : "NOTEBOOK SERVICO", "validade" : "2020-04-24", "serial1" : "1212202065831317024X6937702504694X6920224300135" }]}'),
+  //0);
 
       TEncoding.ASCII.GetBytes('{"licenca":'+copy(RESTResponse1.Content.trim,  pos( '[',RESTResponse1.Content.trim))   +'}' ),0);
 
@@ -245,10 +244,10 @@ begin
 //
 //
                     if jsPair.JsonString.value = 'rsocial' then
-
+                    //preenchendo o listView
                     begin
                       ListView1.BeginUpdate;
-                      Litem := ListView1.Items.Add;
+                       Litem := ListView1.Items.Add;
                       //Litem.detail := jso.GetValue('fantasia');
                       with Litem do
                       begin
